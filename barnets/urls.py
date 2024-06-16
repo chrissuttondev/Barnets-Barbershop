@@ -22,5 +22,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include("home.urls"), name="home-urls"),
     path('home/', home, name='home'),      # Home view also mapped to '/home/'
+    path("appointments/", include("appointments.urls"), name="appointments-urls"), # noqa
     path('admin/', admin.site.urls),       # Django admin URLs
 ]
