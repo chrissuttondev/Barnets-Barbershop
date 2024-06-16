@@ -10,3 +10,7 @@ html {
 .bg-nav {
     background-color: rosybrown;
   }
+
+  .hero {
+    max-width: 25vw;
+  }
