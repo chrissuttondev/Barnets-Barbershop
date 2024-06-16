@@ -14,3 +14,13 @@ html {
   .hero {
     max-width: 25vw;
   }
+
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
+}
