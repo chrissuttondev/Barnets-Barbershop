@@ -20,8 +20,7 @@ from home.views import home
 
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
-    path('', home, name='home'),           # Home view mapped to the root URL
+    path('', include("home.urls"), name="home-urls"),
     path('home/', home, name='home'),      # Home view also mapped to '/home/'
     path('admin/', admin.site.urls),       # Django admin URLs
 ]
-

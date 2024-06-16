@@ -67,7 +67,10 @@ ROOT_URLCONF = 'barnets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Include the templates directory at the same level as the project
+            os.path.join(BASE_DIR, 'home/templates'),  # Include app-specific templates directories as needed
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,7 +104,7 @@ DATABASES = {
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.gitpod.io",
-    
+
 ]
 
 
