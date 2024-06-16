@@ -43,11 +43,21 @@ def appointments(request):
 
 
 # Cancel
+# def appointment_cancel(request, appointment_id):
+#     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
+#     appointment.delete()
+#     messages.add_message(request, messages.SUCCESS, 'Appointment Cancelled')
+#     return redirect(reverse('appointments'))
+
 def appointment_cancel(request, appointment_id):
     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
-    appointment.delete()
-    messages.add_message(request, messages.SUCCESS, 'Appointment Cancelled')
-    return redirect(reverse('appointments'))
+
+    if request.method == 'POST':
+        appointment.delete()
+        messages.success(request, 'Appointment Cancelled')
+        return redirect(reverse('appointments'))
+
+    return render(request, 'appointments/confirm_cancel.html', {'appointment': appointment})
 
 
 # Edit

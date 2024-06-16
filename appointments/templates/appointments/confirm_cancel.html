@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h1>Confirm Appointment Cancellation</h1>
+    <p>Are you sure you want to cancel this appointment?</p>
+    <ul>
+        <li>
+            <p>{{ appointment.date }}, {{ appointment.time }}, {{ appointment.get_service_display }}</p>
+        </li>    
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Cancel">
+        <a href="{% url 'appointments' %}"></a>
+    </form>
+</body>
+{% endblock %}
