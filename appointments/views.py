@@ -57,7 +57,10 @@ def appointment_cancel(request, appointment_id):
         messages.success(request, 'Appointment Cancelled')
         return redirect(reverse('appointments'))
 
-    return render(request, 'appointments/confirm_cancel.html', {'appointment': appointment})
+    return render(
+                request, 'appointments/confirm_cancel.html',
+                {'appointment': appointment}
+                    )
 
 
 # Edit

@@ -1,3 +1,12 @@
-h1 {
-    color: red;
+html {
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
+
+.bg-nav {
+    background-color: rosybrown;
+  }
