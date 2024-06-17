@@ -5,9 +5,9 @@ html {
     padding: 0;
     border: 0;
 }
-
+/*--------------------------------Nav */
 .bg-nav {
-    background-color: rgb(38, 73, 212);
+    background-color: rosybrown;
   }
 
   .navbar-center {
@@ -19,7 +19,20 @@ html {
     align-items: center;
 
 }
-
-.yo {
-  color: red;
+/*-------------------------- Hero */
+.hero-container {
+  position: relative;
 }
+
+.card-img {
+  height: 50vh;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.5); 
+
+} 
+
+/*---------------------------------- footer*/
+
