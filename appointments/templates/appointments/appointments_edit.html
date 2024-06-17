@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p> can you see me</p>
 
 <div class="container">
     {% if messages %} 
@@ -15,7 +14,7 @@
         </ul>
     {% endif %}
     
-    <h3>Edit you appoinment</h3>
+    <h3>Edit your appoinment</h3>
     <form id="appointmentForm" method="post">
         {% csrf_token %}
         {{ appointment_form }}

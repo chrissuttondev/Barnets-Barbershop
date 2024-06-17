@@ -37,18 +37,13 @@ def appointments(request):
             "appointments/appointments.html",
             {
                 'appointment_form': appointment_form,
-                'appointments': appointments
+                'appointments': appointments,
+                'messages': messages.get_messages(request)
             }
         )
 
 
 # Cancel
-# def appointment_cancel(request, appointment_id):
-#     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
-#     appointment.delete()
-#     messages.add_message(request, messages.SUCCESS, 'Appointment Cancelled')
-#     return redirect(reverse('appointments'))
-
 def appointment_cancel(request, appointment_id):
     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
 

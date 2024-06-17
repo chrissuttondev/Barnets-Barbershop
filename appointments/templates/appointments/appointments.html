@@ -1,45 +1,45 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 <!--Appointment content goes here-->
-<div class="container"> 
-    {% if messages %} 
-    <ul class="messages">
-        {% for message in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-            {{ message }}
+<div class="container mt-4">
+    {% if messages %}
+    <div class="alert alert-info">
+        <ul class="list-unstyled mb-0">
+            {% for message in messages %}
+            <li {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<strong>Important:</strong> {% endif %}
+                {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+     <!--Edit Appointment-->
+    <ul class="list-group">
+        {% for appointment in appointments %}
+        {% if user.is_authenticated and appointment.user == user %}
+        <li class="list-group-item">
+            <p><strong>Appointment Details</strong></p>
+            <p>{{ appointment.date }}, {{ appointment.time }}, {{ appointment.get_service_display }}</p>
+            <a href="{% url 'appointments_edit' appointment.id %}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{% url 'appointments_cancel' appointment.id %}" class="btn btn-danger btn-sm">Cancel</a>
         </li>
+        {% endif %}
         {% endfor %}
     </ul>
-    {% endif %}
-    <!--Edit Appointment-->
-    <ul>
-    {% for appointment in appointments %}
-    {% if user.is_authenticated and appointment.user == user%}
-    <li>
-        <h3>Appointment Details</h3>
-        <p>{{ appointment.date }}, {{ appointment.time }}, {{ appointment.get_service_display }}</p>    
-        <a href="{% url 'appointments_edit' appointment.id %}">Edit </a> &nbsp;
-        <a href="{% url 'appointments_cancel' appointment.id %}">Cancel</a>
-    </li>
-    {% endif %}
-    {% endfor %}
-    </ul>
     {% if user.is_authenticated %}
-    <h3>Book your appoinment</h3>
-    <p>Signed in as : {{ user.username }}</p>
-    <form id="appointmentForm" method="post">
-        {% csrf_token %}
-        {{ appointment_form }}
-        <button type="submit">Submit</button>
-    </form>
-
-
+    <div class="mt-4">
+        <h3>Book your appointment</h3>
+        <p>Signed in as: <strong>{{ user.username }}</strong></p>
+        <form id="appointmentForm" method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            {{ appointment_form|crispy }}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
     {% else %}
-    <p>Please <a href="{% url 'account_login' %}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to
-        make and appointment</p>
+    <p class="mt-4">Please <a href="{% url 'account_login' %}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make an appointment</p>
     {% endif %}
 </div>
-
-
 {% endblock %}
