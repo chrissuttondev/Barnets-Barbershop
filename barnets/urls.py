@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home.views import home
+from about.views import about
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include("home.urls"), name="home-urls"),
-    path('home/', home, name='home'),      # Home view also mapped to '/home/'
+    path('home/', home, name='home'),
+    path('about/', about, name='about'),
     path("appointments/", include("appointments.urls"), name="appointments-urls"), # noqa
-    path('admin/', admin.site.urls),       # Django admin URLs
+    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

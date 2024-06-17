@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto text-center">
+            <h3>How it all began</h3>
+            <p>
+               Once upon a time in the bustling town of Bougthon, 
+               there were two lifelong friends known far and wide 
+               as Snip and Clip. From the snowy peaks of the Alps to 
+               the sunny beaches of Bali, Snip and Clip had journeyed together, 
+               honing their barbering skills and collecting tales from every 
+               corner of the globe.
+            </p>
+        </div>
+        <div class="col-md-auto text-center">
+            <img class="about-img1" src="{% static 'images/bs1.jpg' %}" alt="Image 1">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto text-center">
+            <br><br>
+            <p>
+                After years of travel and adventure, they returned to their hometown 
+                with a dream in mind. They pooled their experiences, their laughter, 
+                and their shears to open "Barnets Barbershop" — a cozy haven where 
+                locals could come for a trim and a story.</p>
+        </div>
+        <div class="col-md-auto text-center">
+            <img class="about-img1" src="{% static 'images/bs2.jpg' %}" alt="Image 2">
+        </div>
+    </div>
+</div>
+{% endblock %}

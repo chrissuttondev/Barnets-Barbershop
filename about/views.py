@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-def home(request):
-    template_name = 'home/index.html'
+def about(request):
+    template_name = 'about/about.html'
 
     return render(request, template_name)
