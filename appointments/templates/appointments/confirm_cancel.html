@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<body>
+<div class="container mt-4">
     <h1>Confirm Appointment Cancellation</h1>
     <p>Are you sure you want to cancel this appointment?</p>
-    <ul>
-        <li>
+    <ul class="list-group mb-3">
+        <li class="list-group-item">
             <p>{{ appointment.date }}, {{ appointment.time }}, {{ appointment.get_service_display }}</p>
-        </li>    
+        </li>
     </ul>
     <form method="POST">
         {% csrf_token %}
-        <input type="submit" value="Confirm Cancel">
-        <a href="{% url 'appointments' %}"></a>
+        <input type="submit" value="Confirm Cancel" class="btn btn-danger">
+        <a href="{% url 'appointments' %}" class="btn btn-secondary">Back</a>
     </form>
-</body>
+</div>
 {% endblock %}

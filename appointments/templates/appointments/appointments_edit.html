@@ -1,26 +1,26 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-
-
-<div class="container">
-    {% if messages %} 
-        <ul class="messages">
+<div class="container mt-4">
+    {% if messages %}
+    <div class="alert alert-info">
+        <ul class="list-unstyled mb-0">
             {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            <li {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<strong>Important:</strong> {% endif %}
                 {{ message }}
             </li>
             {% endfor %}
         </ul>
+    </div>
     {% endif %}
     
-    <h3>Edit your appoinment</h3>
-    <form id="appointmentForm" method="post">
+    <h3>Edit your appointment</h3>
+    <form id="appointmentForm" method="post" class="needs-validation" novalidate>
         {% csrf_token %}
-        {{ appointment_form }}
-        <button type="submit">Submit</button>  
+        {{ appointment_form|crispy }}
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a href="{% url 'appointments' %}" class="btn btn-secondary">Cancel</a>
     </form>
-    <a href="#">Cancel</a>
-        
-</div> <!--container/-->
-{% endblock%}
+</div>
+{% endblock %}
