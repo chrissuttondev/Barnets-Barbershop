@@ -1,18 +1,13 @@
 html {
     height: 100%;
     width: 100%;
-    background-color: whitesmoke;
     margin: 0;
     padding: 0;
     border: 0;
 }
 
 .bg-nav {
-    background-color: rosybrown;
-  }
-
-  .hero {
-    max-width: 25vw;
+    background-color: rgb(38, 73, 212);
   }
 
   .navbar-center {
@@ -23,4 +18,8 @@ html {
     display: flex;
     align-items: center;
 
+}
+
+.yo {
+  color: red;
 }
