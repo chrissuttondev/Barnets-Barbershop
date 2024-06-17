@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'gallery' as gallery_url %}
 {% url 'appointments' as appointments_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -38,7 +39,7 @@
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Gallery</a>
+                        <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
                       </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
@@ -74,9 +75,11 @@
     <div class="container">
         <p class="mb-0"><i class="bi bi-scissors"></i> Barnets Barbershop <i class="bi bi-scissors"></i></p>
         <div class="mt-2">
-            <a href="#" class="text-dark me-2"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="text-dark me-2"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-dark"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" class="text-dark me-2"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"  class="text-dark me-2"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/" target="_blank" class="text-dark"><i class="bi bi-twitter"></i></a>
+            <br><br>
+            <P><small><em>Barnets Barbershop, 117b Lightfoot Boulevard, Chessington, CH4 8PQ</em></small></P>
         </div>
     </div>
 </footer>

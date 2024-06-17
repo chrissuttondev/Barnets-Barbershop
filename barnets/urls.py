@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from home.views import home
 from about.views import about
+from gallery.views import gallery
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('', include("home.urls"), name="home-urls"),
     path('home/', home, name='home'),
     path('about/', about, name='about'),
+    path('gallery/', gallery, name='gallery'),
     path("appointments/", include("appointments.urls"), name="appointments-urls"), # noqa
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
