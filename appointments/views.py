@@ -29,17 +29,24 @@ def appointments(request):
                 'Appointment made')
 
             return redirect('appointments')
+        else:
+            messages.add_message(
+                    request, messages.ERROR,
+                    'There was an error with your submission.'
+                    'Please correct the errors below.'
+            )
     else:
         appointment_form = AppointmentForm()
-        return render(
-            request,
-            "appointments/appointments.html",
-            {
-                'appointment_form': appointment_form,
-                'appointments': appointments,
-                'messages': messages.get_messages(request)
-            }
-        )
+
+    return render(
+        request,
+        "appointments/appointments.html",
+        {
+            'appointment_form': appointment_form,
+            'appointments': appointments,
+            'messages': messages.get_messages(request)
+        }
+    )
 
 
 # Cancel
