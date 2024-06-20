@@ -23,5 +23,12 @@ class AppointmentForm(forms.ModelForm):
                         'min': tomorrow,
                         'class': 'form-control'
                         }
-            )
+            ),
+            'notes': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Please tell us about any additonal'
+                    'requirements you may have. Please let us know if you'
+                    'needed any assistance with acceess.'
+                })
         }

@@ -36,7 +36,7 @@
         <form id="appointmentForm" method="post" class="needs-validation" novalidate>
             {% csrf_token %}
             {{ appointment_form|crispy }}
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-secondary">Submit</button>
         </form>
     </div>
     {% else %}
