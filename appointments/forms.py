@@ -16,6 +16,7 @@ class AppointmentForm(forms.ModelForm):
         exclude = ['user']
         presentday = date.today()
         tomorrow = presentday + timedelta(1)
+        print(tomorrow)
         widgets = {
             'date': forms.DateInput(
                 attrs={
