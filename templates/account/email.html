@@ -1,4 +1,4 @@
-{% extends "account/base_manage_email.html" %}
+{% extends "base.html" %}
 {% load allauth i18n %}
 {% block head_title %}
     {% trans "Email Addresses" %}
@@ -64,7 +64,6 @@
                 {% csrf_token %}
                 {% element fields form=form %}
                 {% endelement %}
-            {% endslot %}
             {% slot actions %}
                 {% element button name="action_add" type="submit" %}
                     {% trans "Add Email" %}
@@ -88,3 +87,4 @@
 })();
     </script>
 {% endblock extra_body %}
+
