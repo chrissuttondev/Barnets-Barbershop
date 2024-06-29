@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+/*--------------------------------Nav */
+.bg-nav {
+    background-color: rosybrown;
+  }
+
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
+}
+/*-------------------------- Hero */
+.hero-container {
+  position: relative;
+}
+
+.card-img {
+  height: 50vh;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  background: rgba(0, 0, 0, 0.5); 
+
+} 
+
+/*---------------------------------- about */
+
+.about-img1 {
+  max-width: 40%;
+  height: auto;
+  
+}
+
+.gal-img {
+  max-width: 40%;
+  height: auto;
+}
