@@ -1,11 +1,10 @@
+from django.utils import timezone
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import AppointmentForm
 from .models import appointment_booking
-
-# view to redirect user to appointments.html after sign up success
 
 
 # class signin_success(SignupView):
@@ -18,21 +17,27 @@ def appointments(request):
     appointments = appointment_booking.objects.all()
     if request.method == 'POST':
         appointment_form = AppointmentForm(request.POST)
+
         if appointment_form.is_valid():
             appointment = appointment_form.save(commit=False)
             appointment.user = request.user
-            appointment_form.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Appointment made')
 
+            if appointment.date <= timezone.now().date():
+                messages.error(
+                    request,
+                    'You can only book appointments for future dates.'
+                    )
+                return redirect('appointments')
+
+            appointment.save()
+            messages.success(request, 'Appointment made')
             return redirect('appointments')
         else:
-            messages.add_message(
-                    request, messages.ERROR,
-                    'There was an error with your submission.'
-                    'Please correct the errors below.'
-            )
+            messages.error
+            (request,
+             'There was an error with your submission.'
+             'Please correct the errors below.'
+             )
     else:
         appointment_form = AppointmentForm()
 

@@ -13,15 +13,16 @@ class AppointmentForm(forms.ModelForm):
         """
 
         model = appointment_booking
-        exclude = ['user', 'complete']
+        exclude = ['user', 'complete',]
         presentday = date.today()
         tomorrow = presentday + timedelta(1)
         widgets = {
             'date': forms.DateInput(
                 attrs={
                         'type': 'date',
+                        'class': 'form-control',
                         'min': tomorrow,
-                        'class': 'form-control'
+
                         }
             ),
             'notes': forms.Textarea(
