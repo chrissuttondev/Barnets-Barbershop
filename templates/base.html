@@ -51,6 +51,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 {% if user.is_authenticated %}
                                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{% url 'appointments' %}">My Appointments</a></li>
                                 {% else %}
                                 <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
                                 <li><a class="dropdown-item" href="{% url 'account_signup' %}">Signup</a></li>
