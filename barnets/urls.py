@@ -28,6 +28,9 @@ urlpatterns = [
     path('home/', home, name='home'),
     path('about/', about, name='about'),
     path('gallery/', gallery, name='gallery'),
-    path("appointments/", include("appointments.urls"), name="appointments-urls"), # noqa
+    path("appointments/", include(
+        "appointments.urls"),
+        name="appointments-urls"
+        ),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -8,6 +8,9 @@ from .models import appointment_booking
 
 # Create your views here.
 def appointments(request):
+    """
+    A view to display the appointment booking form to the user.
+    """
     appointments = appointment_booking.objects.all()
     if request.method == 'POST':
         appointment_form = AppointmentForm(request.POST)
@@ -48,6 +51,9 @@ def appointments(request):
 
 # Cancel
 def appointment_cancel(request, appointment_id):
+    """
+    A view to display the appointment cancellation form to the user.
+    """
     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
 
     if request.method == 'POST':
@@ -63,6 +69,9 @@ def appointment_cancel(request, appointment_id):
 
 # Edit
 def appointment_edit(request, appointment_id):
+    """
+    A view to display the appointment edit form to the user.
+    """
     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
     if request.method == "POST":
 
