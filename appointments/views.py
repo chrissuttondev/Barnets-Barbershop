@@ -1,15 +1,9 @@
 from django.utils import timezone
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import AppointmentForm
 from .models import appointment_booking
-
-
-# class signin_success(SignupView):
-def get_success_url(self):
-    return reverse_lazy('appointments')
 
 
 # Create your views here.
@@ -71,8 +65,12 @@ def appointment_cancel(request, appointment_id):
 def appointment_edit(request, appointment_id):
     appointment = get_object_or_404(appointment_booking, pk=appointment_id)
     if request.method == "POST":
+
         if appointment.user.id == request.user.id:
-            appointment_form = AppointmentForm(data=request.POST, instance=appointment) # noqa
+            appointment_form = AppointmentForm(
+                data=request.POST, instance=appointment
+                )
+
             if appointment_form.is_valid():
                 appointment_form.save()
                 messages.add_message(
@@ -87,7 +85,9 @@ def appointment_edit(request, appointment_id):
         return render(
                     request,
                     "appointments/appointments_edit.html",
-                    {'appointment_form': appointment_form, 'appointments': appointments}) # noqa
+                    {
+                        'appointment_form': appointment_form,
+                        'appointments': appointments})
     else:
         return HttpResponse(
                             "Not authorized to edit this appointment!",
