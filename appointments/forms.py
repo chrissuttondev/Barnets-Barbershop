@@ -16,7 +16,6 @@ class AppointmentForm(forms.ModelForm):
         exclude = ['user', 'complete']
         presentday = date.today()
         tomorrow = presentday + timedelta(1)
-        print(tomorrow)
         widgets = {
             'date': forms.DateInput(
                 attrs={
@@ -29,10 +28,7 @@ class AppointmentForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Please tell us about any additonal'
-                    'requirements you may have. Please let us know if you'
-                    'needed any assistance with acceess.'
+                    ' requirements you may have. Please let us know if you'
+                    ' need any assistance with acceess.'
                 })
         }
-
-
-

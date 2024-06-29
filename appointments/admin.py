@@ -11,6 +11,8 @@ class AppointmentBookingAdmin(admin.ModelAdmin):
         'complete',
     )
 
+    list_filter = ['date', 'user', 'service']
+
 
 # Register your models here.
 admin.site.register(appointment_booking, AppointmentBookingAdmin)

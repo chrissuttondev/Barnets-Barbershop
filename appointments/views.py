@@ -18,11 +18,9 @@ def appointments(request):
     appointments = appointment_booking.objects.all()
     if request.method == 'POST':
         appointment_form = AppointmentForm(request.POST)
-        print(appointment_form)
         if appointment_form.is_valid():
             appointment = appointment_form.save(commit=False)
             appointment.user = request.user
-            print(request.user)
             appointment_form.save()
             messages.add_message(
                 request, messages.SUCCESS,
