@@ -11,6 +11,8 @@ The user would like to book an appointment for a haircut and/or beard grooming s
 Site Owner's Goal:
 The site owner would like the ability to take online bookings for their barber shop.
 
+The deployed project is available here https://barnets-d507ec3d2153.herokuapp.com/
+
 ## Features
 
 ### Home page and Hero
