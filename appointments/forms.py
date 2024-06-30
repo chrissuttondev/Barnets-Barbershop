@@ -13,7 +13,7 @@ class AppointmentForm(forms.ModelForm):
         """
 
         model = appointment_booking
-        exclude = ['user', 'complete',]
+        exclude = ['user', 'complete', ]
         presentday = date.today()
         tomorrow = presentday + timedelta(1)
         widgets = {
