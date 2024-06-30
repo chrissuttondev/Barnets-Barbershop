@@ -31,5 +31,8 @@ class AppointmentForm(forms.ModelForm):
                     'placeholder': 'Please tell us about any additonal'
                     ' requirements you may have. Please let us know if you'
                     ' need any assistance with acceess.'
+                    ' If you would prefer to discuss your additional'
+                    'requiremnts via phone please feel free to call us'
+                    'on 01456 123 456'
                 })
         }
