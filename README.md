@@ -98,13 +98,13 @@ affect a user using a screen readers ability to navigate the site.
 
 Manual testing was carried out against the 'Must Have' User Stories acceptance criteria.
 
-User Story: Authentication = PASS
-User Story: About Section = PASS
-User Story: View available appointment times = PASS
-User Story: User - Create, cancel, and update bookings = PASS
-User Story: User Landing = PASS
-User Story: Business Owner - View upcoming bookings = PASS
-User Story: User - Provide additional information = PASS
+- User Story: Authentication = PASS
+- User Story: About Section = PASS
+- User Story: View available appointment times = PASS
+- User Story: User - Create, cancel, and update bookings = PASS
+- User Story: User Landing = PASS
+- User Story: Business Owner - View upcoming bookings = PASS
+- User Story: User - Provide additional information = PASS
 
 ## Deployment
 
